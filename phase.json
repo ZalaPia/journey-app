@@ -1,0 +1,9 @@
+{
+  "phase": {
+    "id":0,
+    "name": "menstrual",;
+  }
+}Phase
+
+- id
+- name (menstrual | birth-control | trying | pregnancy)
