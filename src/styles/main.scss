@@ -1,6 +1,10 @@
+@use "./general/variables";
+@use "./general/colors" as *;
+
 body {
   margin: 0;
   font-family: sans-serif;
+  background: $BGLinear0;
 }
 
 .app {
