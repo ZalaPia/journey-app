@@ -1,0 +1,112 @@
+@use "../../styles/general/colors" as *;
+@use "../../styles/general/variables" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 42em;      // 672px
+  height: 33.5em;   // 536px
+  background: $white;
+  border-radius: 0.875em; // 14px
+  padding: 2.5em;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.5em;   // 24px
+  font-weight: 700;
+  line-height: 2em;   // 32px
+  color: $darkBlue01;
+  margin: 0 0 0.5em 0;
+}
+
+.subtitle {
+  font-size: 0.875em;  // 14px
+  line-height: 1.25em; // 20px
+  color: $darkBlue02;
+  margin: 0 0 2em 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 18.875em); // 302px
+  gap: 1em; // 16px
+}
+
+.card {
+  width: 18.875em;  // 302px
+  height: 7.375em;  // 118px
+  background: $white;
+  border-radius: 0.625em; // 10px
+  border: 0.0625em solid $cardGrey;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75em; // 12px
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  img {
+    width: 3em;
+    height: 3em;
+    object-fit: contain;
+  }
+
+  span {
+    font-size: 1em;
+    font-weight: 500;
+    color: $darkBlue01;
+  }
+
+  &:hover {
+    transform: translateY(-0.2em);
+  }
+}
+
+.active {
+  border: 0.125em solid $cardPink;
+}
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
+.cancel {
+  padding: 0.75em 1.5em;
+  border-radius: 0.5em;
+  border: 0.0625em solid $cardGrey;
+  background: transparent;
+  cursor: pointer;
+}
+
+.confirm {
+  padding: 0.75em 1.5em;
+  border-radius: 0.5em;
+  border: none;
+  background: $cardPink;
+  color: $white;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
