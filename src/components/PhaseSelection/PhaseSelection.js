@@ -74,9 +74,10 @@ function PhaseSelection({ onConfirm }) {
                     </button>
 
                     <button
-                        className={styles.confirm}
-                        disabled={!selectedPhase}
-                        onClick={() => onConfirm(selectedPhase)}
+                        onClick={() => {
+                            console.log("CONFIRM BUTTON CLICK");
+                            onConfirm(selectedPhase);
+                        }}
                     >
                         Confirm Choice
                     </button>

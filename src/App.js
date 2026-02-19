@@ -5,15 +5,20 @@ import JourneyLayout from "./components/JourneyLayout/JourneyLayout";
 function App() {
     const [phase, setPhase] = useState(null);
 
+    console.log("APP RENDER, phase =", phase);
+
     return (
         <div className="app">
-            {/* Vedno je spodaj layout (kasneje WeeklyCalendar) */}
-            <JourneyLayout phase={phase} />
-
-            {/* Overlay se pokaže samo, če phase še ni izbran */}
             {!phase && (
-                <PhaseSelection onConfirm={setPhase} />
+                <PhaseSelection
+                    onConfirm={(value) => {
+                        console.log("CONFIRM CLICKED, value =", value);
+                        setPhase(value);
+                    }}
+                />
             )}
+
+            {phase && <JourneyLayout />}
         </div>
     );
 }

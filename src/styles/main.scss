@@ -1,6 +1,6 @@
 @use "./general/colors" as *;
 @use "./general/variables" as *;
-@use "./general/general" as *;
+@use "./general/general";
 
 /* Global reset */
 * {

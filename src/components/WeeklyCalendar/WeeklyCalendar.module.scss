@@ -1,0 +1,14 @@
+@use "../../styles/general/colors" as *;
+
+.calendar {
+  width: 100%;
+  max-width: 70em;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+.daysRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1em;
+}

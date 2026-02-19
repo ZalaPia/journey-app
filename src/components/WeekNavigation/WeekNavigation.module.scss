@@ -1,0 +1,12 @@
+@use "../../styles/general/colors" as *;
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.navigation h2 {
+  font-size: 1.25em;
+}
