@@ -1,10 +1,10 @@
-@use "./general/colors" as *;
-@use "./general/variables" as *;
-@use "./general/general";
+@use './general/variables' as *;
+@use './general/colors' as *;
+@use './general/general' as *;
+
 
 /* Global reset */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -14,11 +14,10 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: $font, sans-serif;
   background: linear-gradient(
-                  135deg,
-                  $BGLinear0,
-                  $BGLinear50,
-                  $BGLinear100
+                  $BGLinear0 0%,
+                  $BGLinear50 50%,
+                  $BGLinear100 100%
   );
 }

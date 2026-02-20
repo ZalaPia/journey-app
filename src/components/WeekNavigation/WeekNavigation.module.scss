@@ -1,12 +1,28 @@
 @use "../../styles/general/colors" as *;
 
-.navigation {
+.wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2em;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.navigation h2 {
-  font-size: 1.25em;
+.weekLabel {
+  margin: 0;
+  color: $btnBackground;
+}
+
+.actions {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.dateInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }

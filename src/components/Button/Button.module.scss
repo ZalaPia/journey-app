@@ -1,0 +1,32 @@
+@use "../../styles/general/colors" as *;
+@use "../../styles/general/variables" as *;
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 0.625rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn--default {
+  background-color: $btnBackground;
+  color: $white;
+}
+
+.btn--ghost {
+  background-color: $white;
+  color: $btnBackground;
+  border: 1px solid $btnBorder;
+}

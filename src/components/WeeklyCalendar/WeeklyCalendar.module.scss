@@ -1,14 +1,30 @@
 @use "../../styles/general/colors" as *;
 
-.calendar {
-  width: 100%;
-  max-width: 70em;
-  margin: 0 auto;
-  padding: 2em;
+.wrapper {
+  display: grid;
+  gap: 1.25rem;
 }
 
-.daysRow {
+.grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1em;
+  grid-template-columns: repeat(7, minmax(80px, 1fr));
+  gap: 0.75rem;
+}
+
+.dayDetail {
+  background: $white;
+  border: 1px solid #d9dfeb;
+  border-radius: 12px;
+  padding: 1rem;
+
+  h3 {
+    margin: 0 0 0.75rem;
+    color: $btnBackground;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: $darkBlue02;
+  }
 }

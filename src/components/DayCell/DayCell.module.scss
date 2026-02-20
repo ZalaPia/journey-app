@@ -1,18 +1,36 @@
 @use "../../styles/general/colors" as *;
+@use "../../styles/general/variables" as *;
 
 .dayCell {
+  border: 1px solid #d9dfeb;
   background: $white;
-  border-radius: 0.75em;
-  padding: 1em;
-  min-height: 8em;
-  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
 }
 
-.dayLabel {
+.selected {
+  border-color: #1f2a44;
+  box-shadow: 0 0 0 2px rgba(31, 42, 68, 0.15);
+}
+
+.dayName {
+  font-size: 0.8rem;
+  color: #6b7388;
+}
+
+.dayNumber {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $btnBackground;
+}
+
+.todayBadge {
+  font-size: 0.7rem;
   font-weight: 600;
-  margin-bottom: 0.5em;
-}
-
-.dayContent {
-  height: 4em;
+  color: $cardPink;
 }

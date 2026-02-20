@@ -1,0 +1,12 @@
+@use "../../styles/general/colors" as *;
+
+.layout {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background: linear-gradient(
+                  135deg,
+                  $BGLinear0 0%,
+                  $BGLinear50 50%,
+                  $BGLinear100 100%
+  );
+}

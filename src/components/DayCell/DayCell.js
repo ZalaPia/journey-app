@@ -1,12 +1,19 @@
-import styles from "./DayCell.module.scss";
+import styles from './DayCell.module.scss';
 
-function DayCell({ label }) {
+export function DayCell({ date, isSelected, isToday, onSelect }) {
+    const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+    const dayNumber = date.getDate();
+
     return (
-        <div className={styles.dayCell}>
-            <div className={styles.dayLabel}>{label}</div>
-            <div className={styles.dayContent}></div>
-        </div>
+        <button
+            type="button"
+            onClick={() => onSelect(date)}
+            className={`${styles.dayCell} ${isSelected ? styles.selected : ''}`.trim()}
+            aria-pressed={isSelected}
+        >
+            <span className={styles.dayName}>{dayName}</span>
+            <span className={styles.dayNumber}>{dayNumber}</span>
+            {isToday && <span className={styles.todayBadge}>Today</span>}
+        </button>
     );
 }
-
-export default DayCell;
