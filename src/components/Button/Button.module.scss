@@ -3,12 +3,8 @@
 
 .btn {
   border: none;
-  border-radius: 8px;
-  padding: 0.625rem 1rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  padding: 10px 20px;
+  border-radius: 5px;
 
   &:hover {
     transform: translateY(-1px);
@@ -23,10 +19,34 @@
 .btn--default {
   background-color: $btnBackground;
   color: $white;
+
 }
 
 .btn--ghost {
   background-color: $white;
-  color: $btnBackground;
+  color: $black;
   border: 1px solid $btnBorder;
+}
+
+.btn--weekNav {
+  padding: 6px;
+  background: $white;
+  color: $black;
+
+  border: 1.33px solid $grayTransparent;
+}
+
+.btn--gradient{
+  color: $white;
+  background: linear-gradient(
+                  135deg,
+                  $cardPink 0%,
+                  $cardPurple 100%
+  );
+}
+
+.btn--black {
+  background-color: $black;
+  color: $white;
+  font-size: medium;
 }
