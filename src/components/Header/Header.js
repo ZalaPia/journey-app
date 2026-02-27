@@ -1,17 +1,20 @@
 import styles from "./Header.module.scss";
-import phaseIcon from "../../assets/tryingtoconcievePhase.png";
+
+const pregnantIcon = new URL(
+    "../../assets/Header.svg",
+    import.meta.url
+).href;
 
 function Header() {
 
-    console.log("phaseIcon:", phaseIcon);
     return (
         <header className={styles.header}>
             <div className="container">
                 <div className={styles.titleRow}>
                     <img
-                        src={phaseIcon}
+                        src={pregnantIcon}
                         alt="Journey phase icon"
-                        className={styles.icon}
+                        className={styles.img}
                     />
 
                     <h1 className={styles.title}>

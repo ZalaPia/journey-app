@@ -10,9 +10,10 @@
   gap: 0.1875em;        // 3px
 }
 
-.icon {
+.img {
   width: 2.5em;         // 40px
   height: 2.5em;
+  display: block;
 }
 
 .title {
@@ -25,6 +26,6 @@
 .subtitle {
   font-size: 0.875em;
   color: $darkBlue02;
-  margin: 0;
   margin-top: 0.1875em; // 3px
 }
+
