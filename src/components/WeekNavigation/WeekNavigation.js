@@ -1,43 +1,84 @@
-import { useRef } from 'react';
-import { Button } from '../Button/Button';
-import styles from './WeekNavigation.module.scss';
+import { useRef, useState } from "react";
+import { Button } from "../Button/Button";
+import styles from "./WeekNavigation.module.scss";
+import PhaseSelection from "../PhaseSelection/PhaseSelection";
 
-export function WeekNavigation({ weekLabel, onPreviousWeek, onNextWeek, onGoToDate }) {
+export function WeekNavigation({
+                                   weekLabel,
+                                   phase,
+                                   onPreviousWeek,
+                                   onNextWeek,
+                                   onGoToDate,
+                                   onChangePhase,
+                               }) {
     const dateInputRef = useRef(null);
+    const [showDateInput, setShowDateInput] = useState(false);
 
     function handleGoToDateClick() {
-        if (!dateInputRef.current) return;
+        setShowDateInput(true);
 
-        if (typeof dateInputRef.current.showPicker === 'function') {
-            dateInputRef.current.showPicker();
-            return;
-        }
-
-        dateInputRef.current.click();
+        // počakamo render in nato fokus
+        setTimeout(() => {
+            if (dateInputRef.current) {
+                if (typeof dateInputRef.current.showPicker === "function") {
+                    dateInputRef.current.showPicker();
+                } else {
+                    dateInputRef.current.focus();
+                }
+            }
+        }, 0);
     }
 
     function handleDateChange(event) {
         if (event.target.value) {
             onGoToDate(event.target.value);
+            setShowDateInput(false); // po izbiri skrijemo input
         }
     }
 
     return (
         <section className={styles.wrapper}>
-            <h2 className={styles.weekLabel}>{weekLabel}</h2>
-            <div className={styles.actions}>
-                <Button onClick={onPreviousWeek}>Previous week</Button>
-                <Button onClick={onNextWeek}>Next week</Button>
-                <Button onClick={handleGoToDateClick} variant="ghost">
-                    Go to date
+            {/* ZGORNJA VRSTICA */}
+            <div className={styles.topRow}>
+                <Button onClick={onPreviousWeek} variant="weekNav">
+                    ← Previous Week
                 </Button>
-                <input
-                    ref={dateInputRef}
-                    type="date"
-                    className={styles.dateInput}
-                    onChange={handleDateChange}
-                    aria-label="Choose date"
-                />
+
+                <div className={styles.center}>
+                    <div className={styles.weekLabel}>{weekLabel}</div>
+                    <div className={styles.phaseLabel}>
+                        {phase} Tracking
+                    </div>
+                </div>
+
+                <Button onClick={onNextWeek} variant="weekNav">
+                  Next Week  →
+                </Button>
+            </div>
+
+            {/* SPODNJA VRSTICA */}
+            <div className={styles.actions}>
+                <Button onClick={onChangePhase} variant="gradient">
+                    Change phase
+                </Button>
+
+                <span className={styles.divider} />
+
+                <div className={styles.goToDateWrapper}>
+                    <Button onClick={handleGoToDateClick} variant="ghost">
+                        Go to date
+                    </Button>
+
+                    {showDateInput && (
+                        <input
+                            ref={dateInputRef}
+                            type="date"
+                            className={styles.dateInput}
+                            onChange={handleDateChange}
+                            aria-label="Choose date"
+                        />
+                    )}
+                </div>
             </div>
         </section>
     );

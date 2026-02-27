@@ -1,28 +1,75 @@
 @use "../../styles/general/colors" as *;
+@use "../../styles/general/variables" as *;
 
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  margin: 2rem 0;
+  background: $white;
+  border: 1px solid $btnBorder;
+  border-radius: 12px;
+  padding: 1rem;
 }
 
-.weekLabel {
+.topRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.center {
+  text-align: center;
+  color: #1f2a44;
   margin: 0;
-  color: $btnBackground;
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
+
+
+.phaseLabel {
+  margin-top: 0.25em;
+  font-size: 0.875em;
+  color: $Pink01;
 }
 
 .actions {
-  position: relative;
+  margin-top: 1.25rem;
   display: flex;
-  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.divider {
+  width: 1px;
+  height: 1.5em;
+  background: $cardGrey;
+}
+
+.goToDateWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
 .dateInput {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
+  left: 0;
+
+  padding: 0.4em 0.6em;
+  font-family: $font;
+  font-size: 0.875em;
+
+  border-radius: 0.5em;
+  border: 1px solid $cardGrey;
+  background: $white;
+  color: $darkBlue01;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 10;
 }
+
