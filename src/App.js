@@ -1,25 +1,39 @@
 import { useState } from "react";
-import PhaseSelection from "./components/PhaseSelection/PhaseSelection";
 import JourneyLayout from "./components/JourneyLayout/JourneyLayout";
+import PhaseSelection from "./components/PhaseSelection/PhaseSelection";
+
 
 function App() {
     const [phase, setPhase] = useState(null);
+    const [isPhaseSelectionOpen, setIsPhaseSelectionOpen] = useState(true);
 
-    console.log("APP RENDER, phase =", phase);
+    function handleConfirmPhase(selectedPhase){
+        setPhase(selectedPhase);
+        setIsPhaseSelectionOpen(false);
+    }
+
+    function handleCancelPhaseSelection(){
+            setIsPhaseSelectionOpen(false);
+    }
+
+    function handleChangePhase(){
+        setIsPhaseSelectionOpen(true);
+    }
 
     return (
-        <div className="app">
-            {!phase && (
+        <>
+            <JourneyLayout
+                phase={phase}
+                onChangePhase={handleChangePhase}
+            />
+
+            {isPhaseSelectionOpen && (
                 <PhaseSelection
-                    onConfirm={(value) => {
-                        console.log("CONFIRM CLICKED, value =", value);
-                        setPhase(value);
-                    }}
+                    onConfirm={handleConfirmPhase}
+                    onCancel={handleCancelPhaseSelection}
                 />
             )}
-
-            {phase && <JourneyLayout />}
-        </div>
+        </>
     );
 }
 

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { WeekNavigation } from '../WeekNavigation/WeekNavigation';
+import { WeekNavigation }  from '../WeekNavigation/WeekNavigation';
 import { WeeklyCalendar } from '../WeeklyCalendar/WeeklyCalendar';
 import styles from './JourneyLayout.module.scss';
 import Header from "../Header/Header";
@@ -29,7 +29,7 @@ function sameDay(a, b) {
     );
 }
 
-export default function JourneyLayout() {
+export default function JourneyLayout({phase, onChangePhase}) {
     const today = new Date();
     const [weekStart, setWeekStart] = useState(startOfWeekMonday(today));
     const [selectedDate, setSelectedDate] = useState(today);
@@ -79,6 +79,8 @@ export default function JourneyLayout() {
             <div className="container">
                 <Header />
                 <WeekNavigation
+                    phase={phase}
+                    onChangePhase={onChangePhase}
                     onPreviousWeek={() => shiftWeek(-7)}
                     weekLabel={weekLabel}
                     onGoToDate={handleGoToDate}

@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { Button } from "../Button/Button";
 import styles from "./WeekNavigation.module.scss";
-import PhaseSelection from "../PhaseSelection/PhaseSelection";
 
 export function WeekNavigation({
                                    weekLabel,
@@ -13,6 +12,12 @@ export function WeekNavigation({
                                }) {
     const dateInputRef = useRef(null);
     const [showDateInput, setShowDateInput] = useState(false);
+    const PHASE_LABELS = {
+        menstrual: "Menstrual Cycle",
+        "birth-control": "Birth Control",
+        trying: "Trying to Conceive",
+        pregnancy: "Pregnancy",
+    };
 
     function handleGoToDateClick() {
         setShowDateInput(true);
@@ -46,9 +51,11 @@ export function WeekNavigation({
 
                 <div className={styles.center}>
                     <div className={styles.weekLabel}>{weekLabel}</div>
-                    <div className={styles.phaseLabel}>
-                        {phase} Tracking
-                    </div>
+                    {phase && (
+                        <div className={styles.phaseLabel}>
+                            Tracking {PHASE_LABELS[phase]}
+                        </div>
+                    )}
                 </div>
 
                 <Button onClick={onNextWeek} variant="weekNav">

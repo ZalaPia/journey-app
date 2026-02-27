@@ -1,12 +1,28 @@
 import { useState } from "react";
 import styles from "./PhaseSelection.module.scss";
+import { Button } from "../Button/Button";
 
-import menstrualIcon from "../../assets/menstrualcyclePhase.png";
-import birthControlIcon from "../../assets/birthcontrolPhase.png";
-import tryingIcon from "../../assets/tryingtoconcievePhase.png";
-import pregnantIcon from "../../assets/pregnantPhase.png";
+const menstrualIcon = new URL(
+    "../../assets/menstrualcyclePhase.png",
+    import.meta.url
+).href;
 
-function PhaseSelection({ onConfirm }) {
+const birthControlIcon = new URL(
+    "../../assets/birthcontrolPhase.png",
+    import.meta.url
+).href;
+
+const tryingIcon = new URL(
+    "../../assets/tryingtoconcievePhase.png",
+    import.meta.url
+).href;
+
+const pregnantIcon = new URL(
+    "../../assets/pregnantPhase.png",
+    import.meta.url
+).href;
+
+function PhaseSelection({ onConfirm, onCancel }) {
     const [selectedPhase, setSelectedPhase] = useState(null);
 
     return (
@@ -30,7 +46,7 @@ function PhaseSelection({ onConfirm }) {
                         onClick={() => setSelectedPhase("menstrual")}
                     >
                         <img src={menstrualIcon} alt="Menstrual cycle" />
-                        <span>Menstrual Cycle</span>
+                        <span>Monthly period</span>
                     </div>
 
                     <div
@@ -59,28 +75,30 @@ function PhaseSelection({ onConfirm }) {
                         }`}
                         onClick={() => setSelectedPhase("pregnancy")}
                     >
-                        <img src={pregnantIcon} alt="Pregnant" />
+                        <img src={pregnantIcon}
+                             alt="Pregnant"
+                             />
                         <span>Pregnant</span>
                     </div>
 
                 </div>
 
                 <div className={styles.actions}>
-                    <button
+                    <Button
+                        variant="ghost"
                         className={styles.cancel}
-                        onClick={() => setSelectedPhase(null)}
+                        onClick={onCancel}
                     >
                         Cancel
-                    </button>
+                    </Button>
 
-                    <button
-                        onClick={() => {
-                            console.log("CONFIRM BUTTON CLICK");
+                    <Button
+                        variant="gradient" onClick={()  => {
                             onConfirm(selectedPhase);
                         }}
                     >
-                        Confirm Choice
-                    </button>
+                        Save Phase Change
+                    </Button>
                 </div>
 
             </div>
