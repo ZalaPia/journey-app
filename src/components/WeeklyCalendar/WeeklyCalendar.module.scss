@@ -18,7 +18,7 @@
   padding: 1rem;
 
   h3 {
-    margin: 0 0 0.75rem;
+    margin: 0 0;
     color: $btnBackground;
   }
 
@@ -28,3 +28,77 @@
     color: $darkBlue02;
   }
 }
+
+.dateTitle{
+  color: #8200DB;
+}
+
+.entryBox{
+  padding: 1rem 0 1rem 0;
+  h4 {
+    font-size: 1rem;
+  }
+
+  .symptoms  {
+    color: $cardPink;
+  }
+
+  .symptoms__line{
+    border: none;
+    height: 2px;
+    background-color: $cardPinkLine;
+  }
+
+  .important_dates{
+    color: $cardBlue;
+  }
+
+  .important_dates__line {
+    border: none;
+    height: 2px;
+    background-color: $cardBlueLine;
+  }
+
+  .thoughts_ideas{
+    color: $cardPurple;
+  }
+
+  .thoughts_ideas__line {
+    border: none;
+    height: 2px;
+    background-color: $cardPurpleLine;
+  }
+  .sticky_notes{
+    color: $cardGreen;
+  }
+
+  .sticky_notes__line {
+    border: none;
+    height: 2px;
+    background-color: $cardGreenLine;
+  }
+
+}
+
+.subtitle {
+  font-size: 0.8em;
+  color: $darkBlue02;
+  padding-bottom: 3rem;
+}
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+
+textarea{
+  resize: none;
+  width: 100%;
+
+}
+
