@@ -37,15 +37,15 @@ export function ThoughtsAndIdeas() {
             </div>
 
             {/* line */}
-            <hr className={styles.line}/>
+            <hr className={styles.line} />
 
             {/* input */}
             <div className={styles.inputRow}>
-      <textarea
-          placeholder="What do you think of?"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-      />
+                <textarea
+                    placeholder="Write your thoughts, ideas or quotes…"
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
                 <Button variant="black" onClick={handleAdd}>
                     +
                 </Button>
