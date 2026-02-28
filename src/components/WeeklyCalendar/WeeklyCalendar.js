@@ -6,8 +6,7 @@ import {Button} from "../Button/Button";
 import { Symptoms } from "../DayEntries/Symptoms/Symptoms";
 import { ReminderModal } from "../ReminderModal/ReminderModal";
 import { ImportantDates } from "../DayEntries/ImportantDates/ImportantDates";
-
-
+import { ThoughtsAndIdeas} from "../DayEntries/ThoughtsandIdeas/ThoughtsandIdeas";
 
 function sameDay(a, b) {
     return (
@@ -78,11 +77,7 @@ export function WeeklyCalendar({ weekDates, selectedDate, onSelectDate }) {
                                             onAdd={handleAddImportantDate}
                             />
 
-                            <div className={`${styles.entryBox} ${styles.fullWidth}`}>
-                                <h4 className={styles.thoughts_ideas}>Thoughts, Ideas and Quotes</h4>
-                                <hr className={styles.thoughts_ideas__line}/>
-                                <textarea placeholder="Write your thoughts…" />
-                            </div>
+                            <ThoughtsAndIdeas />
 
                             <div className={`${styles.entryBox} ${styles.fullWidth}`}>
                                 <h4 className={styles.sticky_notes}>Sticky notes</h4>
