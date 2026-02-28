@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { DayCell } from '../DayCell/DayCell';
 import styles from './WeeklyCalendar.module.scss';
 import {Button} from "../Button/Button";
+
+import { Symptoms } from "../DayEntries/Symptoms/Symptoms";
 
 function sameDay(a, b) {
     return (
@@ -42,14 +45,7 @@ export function WeeklyCalendar({ weekDates, selectedDate, onSelectDate }) {
 
                 <div className={styles.entriesGrid}>
 
-                            <div className={styles.entryBox}>
-                                <h4 className={styles.symptoms}>Symptoms</h4>
-                                <hr className={styles.symptoms__line}/>
-                                <textarea placeholder="Add symptoms…" />
-                                <Button variant="black">
-                                    +
-                                </Button>
-                            </div>
+                            <Symptoms/>
 
                             <div className={styles.entryBox}>
                                 <h4 className={styles.important_dates}>Important dates</h4>
