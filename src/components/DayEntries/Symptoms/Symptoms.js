@@ -30,7 +30,7 @@ export function Symptoms({onCountChange}) {
                     alt="Symptoms icon"
                     className={styles.icon}
                 />
-                <h4 className={styles.title}>Symptoms</h4>
+                <h4 className={styles.title}>Symptoms and Feelings of today</h4>
             </div>
 
             {/* linija */}
@@ -39,7 +39,7 @@ export function Symptoms({onCountChange}) {
             {/* vnos simptoma */}
             <div className={styles.inputRow}>
                 <textarea
-                    placeholder="Enter your symptom…"
+                    placeholder="What symptoms or feelings do you feel today?"
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                 />
