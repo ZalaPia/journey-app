@@ -5,7 +5,7 @@
   border: 1px solid #d9dfeb;
   background: $white;
   border-radius: 12px;
-  padding: 0.75rem;
+  padding: 3.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,14 +19,15 @@
 }
 
 .dayName {
-  font-size: 0.8rem;
-  color: #6b7388;
+  font-size: 0.625rem;
+  color: $gray;
+  text-transform: uppercase;
 }
 
 .dayNumber {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: $btnBackground;
+  color: $black1;
 }
 
 .todayBadge {

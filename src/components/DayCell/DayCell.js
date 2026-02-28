@@ -1,6 +1,6 @@
 import styles from './DayCell.module.scss';
 
-export function DayCell({ date, isSelected, isToday, onSelect }) {
+export function DayCell({ date, isSelected, isToday, onSelect, onTodayClick }) {
     const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
     const dayNumber = date.getDate();
 
@@ -13,7 +13,17 @@ export function DayCell({ date, isSelected, isToday, onSelect }) {
         >
             <span className={styles.dayName}>{dayName}</span>
             <span className={styles.dayNumber}>{dayNumber}</span>
-            {isToday && <span className={styles.todayBadge}>Today</span>}
+            {isToday && (                                               //TODO!!!
+                <p
+                    className={styles.todayBadge}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onTodayClick?.();
+                    }}
+                >
+                    Today
+                </p>
+            )}
         </button>
     );
 }
